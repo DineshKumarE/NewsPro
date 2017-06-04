@@ -16,6 +16,8 @@ class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let boardViewCellNibName = UINib(nibName: "BoardViewCellTableViewCell", bundle: nil)
         self.tableBoardView.register(boardViewCellNibName, forCellReuseIdentifier: "Cell")
         self.tableBoardView.delegate = self
+       
+        
         
     }
 
@@ -37,7 +39,10 @@ class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? BoardViewCellTableViewCell
+        cell?.layer.cornerRadius = 40.0;
         
+        cell?.layer.masksToBounds = false;
+
         cell?.brandName.text = "The Times of India"
         cell?.newsHeadlineText.text = "the command registerNib should be called in ViewDidLoad, but not in each call of cell for row"
         cell?.newsContentText.text = "what is 'bluecell'? In your call-back cellforTable.., you assign cell = blucell -> this can cause your problems."
