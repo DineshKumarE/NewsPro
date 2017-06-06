@@ -1,6 +1,6 @@
 //
 //  BoardViewController.swift
-//  NewsBoard
+//  NewsBoard //
 //
 //  Created by DineshKumar on 03/06/17.
 //  Copyright © 2017 DineshKumar. All rights reserved.
