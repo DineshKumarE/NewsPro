@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var ref: DatabaseReference!
+    
     @IBOutlet weak var tableBoardView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +20,7 @@ class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.tableBoardView.register(boardViewCellNibName, forCellReuseIdentifier: "Cell")
         self.tableBoardView.delegate = self
        
-        
+        ref = Database.database().reference()
         
     }
 
