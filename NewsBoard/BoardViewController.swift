@@ -8,10 +8,11 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var ref: DatabaseReference!
+   var ref: DatabaseReference!
+    
     
     @IBOutlet weak var tableBoardView: UITableView!
     override func viewDidLoad() {
@@ -19,8 +20,10 @@ class BoardViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let boardViewCellNibName = UINib(nibName: "BoardViewCellTableViewCell", bundle: nil)
         self.tableBoardView.register(boardViewCellNibName, forCellReuseIdentifier: "Cell")
         self.tableBoardView.delegate = self
-       
-        ref = Database.database().reference()
+       ref = Database.database().reference().child("RSS_Site_Name")
+        ref.observe(.value, with: { firDataSnapshot in
+            print("FirValue: \((firDataSnapshot.value)!)")
+        })
         
     }
 
